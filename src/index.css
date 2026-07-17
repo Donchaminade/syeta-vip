@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+:root {
+  /* Soft Dark Theme variables (default) */
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #111111;
+  --bg-tertiary: #16161a;
+  --bg-darker: #050505;
+  --text-primary: #f3f4f6;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --border-primary: rgba(255, 255, 255, 0.1);
+  --border-secondary: rgba(255, 255, 255, 0.05);
+  
+  /* Lighter vibrant luxury pink accent (#FFB3C6) */
+  --color-vip-rose: #FFB3C6;
+  --color-vip-rose-hover: #FFA0B6;
+  --luxury-gold: #E2C792; /* Beautiful soft champagne luxury gold */
+  --text-on-vip-rose: #050505; /* Black text on pale pink for high contrast */
+
+  /* VIP Rose palette variables for dark mode (soft glowing pinks) */
+  --gold-50: #fff5f7;
+  --gold-100: #ffe6eb;
+  --gold-200: #ffccd6;
+  --gold-300: #ffa1b5;
+  --gold-400: #ffb3c6; /* Clear glowing pink */
+  --gold-500: #ff9fb4;
+  --gold-600: #e2758e;
+  --gold-700: #c5536d;
+  --gold-800: #a13d54;
+  --gold-900: #822f42;
+  --gold-950: #4c111e;
+}
+
+:root.light {
+  /* Soft Light Theme variables - highly sophisticated, creamy & delicate */
+  --bg-primary: #FCF7F8; /* Soft rosy milk cream */
+  --bg-secondary: #FFFFFF; /* Pure white cards */
+  --bg-tertiary: #F8EAED; /* Soft blush gray-pink */
+  --bg-darker: #F3E2E6; /* Slightly deeper luxury pink shade */
+  --text-primary: #2C181C; /* Dark chocolate-espresso with cherry undertones */
+  --text-secondary: rgba(44, 24, 28, 0.65); /* Elegant secondary text */
+  --border-primary: rgba(209, 91, 118, 0.25); /* Ultra soft rich rose borders */
+  --border-secondary: rgba(209, 91, 118, 0.12);
+  --luxury-gold: #D4AF37; /* Classic luxury gold for light mode */
+  
+  /* Rose variables for light mode - richer, saturated, deeper to avoid whitish/washed out look and ensure high contrast readability */
+  --color-vip-rose: #D15B76; /* Rich, vibrant, elegant luxury rose pink */
+  --color-vip-rose-hover: #B5415B; /* Deeper hover tone */
+  --text-on-vip-rose: #FFFFFF; /* White text on rich pink for premium legibility */
+
+  /* VIP Rose palette variables for light mode (deeper, elegant, highly readable roses) */
+  --gold-50: #ffeef2;
+  --gold-100: #ffd6e0;
+  --gold-200: #ffaec1;
+  --gold-300: #e2758e;
+  --gold-400: #d15b76; /* Rich elegant brand pink - replaces the light whitish pink */
+  --gold-500: #b5415b;
+  --gold-600: #962f46;
+  --gold-700: #7d2035;
+  --gold-800: #651527;
+  --gold-900: #4e0d1b;
+  --gold-950: #31030e;
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Montserrat", sans-serif;
+  --font-serif: "Playfair Display", serif;
+
+  /* Premium luxury Rose colors mapped dynamically to prevent washed out look in light mode */
+  --color-gold-50: var(--gold-50);
+  --color-gold-100: var(--gold-100);
+  --color-gold-200: var(--gold-200);
+  --color-gold-300: var(--gold-300);
+  --color-gold-400: var(--gold-400); 
+  --color-gold-500: var(--gold-500);
+  --color-gold-600: var(--gold-600);
+  --color-gold-700: var(--gold-700);
+  --color-gold-800: var(--gold-800);
+  --color-gold-900: var(--gold-900);
+  --color-gold-950: var(--gold-950);
+
+  --color-luxury-gold: var(--luxury-gold);
+
+  --color-vip-black: var(--bg-primary);
+  --color-vip-dark: var(--bg-secondary);
+  --color-vip-charcoal: var(--bg-tertiary);
+  --color-vip-gold: var(--color-vip-rose);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Custom high-end scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--bg-darker);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-vip-rose);
+  }
+}
+
+/* Dynamic theme-aware classes to ensure seamless light/dark mode transitioning */
+.theme-bg-primary {
+  background-color: var(--bg-primary);
+  transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.theme-bg-secondary {
+  background-color: var(--bg-secondary);
+  transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.theme-bg-tertiary {
+  background-color: var(--bg-tertiary);
+  transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.theme-bg-darker {
+  background-color: var(--bg-darker);
+  transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme-text-primary {
+  color: var(--text-primary);
+  transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.theme-text-secondary {
+  color: var(--text-secondary);
+  transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme-border-primary {
+  border-color: var(--border-primary);
+  transition: border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.theme-border-secondary {
+  border-color: var(--border-secondary);
+  transition: border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme-text-on-vip-rose {
+  color: var(--text-on-vip-rose);
+  transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Luxury animations and visual patterns */
+.luxury-grid {
+  background-image: radial-gradient(rgba(255, 179, 198, 0.15) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.glow-gold {
+  box-shadow: 0 0 15px rgba(255, 179, 198, 0.2);
+}
+
+.border-gold-gradient {
+  border-image: linear-gradient(to right, var(--bg-darker), var(--color-vip-rose), var(--bg-darker)) 1;
+}

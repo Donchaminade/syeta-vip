@@ -1,0 +1,6 @@
+{
+  "name": "SYETA VIP",
+  "description": "Boutique de mode et chaussures VIP à Adidogomé, Lomé (Togo) : catalogue en ligne interactif avec commande WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
